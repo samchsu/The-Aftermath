@@ -15,7 +15,7 @@ public class TopDownMovementHandler : MonoBehaviour
     [SerializeField]
     private Camera cam;
 
-    private bool RotateTowardsMouse = true;
+    private bool RotateTowardsMouse = false;
 
     private void Awake()
     {

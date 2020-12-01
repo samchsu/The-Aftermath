@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
+    public Animator a;
+    const float acceleration = 0.0097f;
+    const float speedConstant = 0.15f;
+    float speed;
+
     public Vector2 InputVector { get; private set; }
 
     public Vector3 MousePosition { get; private set; }
@@ -11,7 +16,7 @@ public class InputHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        a = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -22,5 +27,17 @@ public class InputHandler : MonoBehaviour
         InputVector = new Vector2(h, v);
 
         MousePosition = Input.mousePosition;
+
+        if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
+        {
+            speed += acceleration;
+        }
+        else
+        {
+            speed -= acceleration;
+        }
+
+        speed = Mathf.Clamp(speed, 0, 1);
+        a.SetFloat("Blend", speed);
     }
 }
