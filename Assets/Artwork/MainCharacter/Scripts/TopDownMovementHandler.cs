@@ -6,14 +6,12 @@ public class TopDownMovementHandler : MonoBehaviour
 {
     private InputHandler _input;
 
-    [SerializeField]
-    private float moveSpeed;
 
-    [SerializeField]
-    private float rotateSpeed;
+    public float moveSpeed;
 
-    [SerializeField]
-    private Camera cam;
+    public float rotateSpeed;
+
+    public Camera cam;
 
     private bool RotateTowardsMouse = false;
 

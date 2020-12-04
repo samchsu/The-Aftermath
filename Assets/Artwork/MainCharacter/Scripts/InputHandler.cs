@@ -13,6 +13,8 @@ public class InputHandler : MonoBehaviour
 
     public Vector3 MousePosition { get; private set; }
 
+    public bool moveBool = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,14 @@ public class InputHandler : MonoBehaviour
 
         MousePosition = Input.mousePosition;
 
+        if (moveBool)
+        {
+            move();
+        }
+    }
+
+    public void move()
+    {
         if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
         {
             speed += acceleration;
