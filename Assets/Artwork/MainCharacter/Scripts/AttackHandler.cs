@@ -24,6 +24,8 @@ public class AttackHandler : MonoBehaviour
     const float acceleration = 0.0097f;
     const float speedConstant = 0.15f;
     float speed;
+
+    public GameObject frontAttackPS;
     // Start is called before the first frame update
     void Start()
     {
