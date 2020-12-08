@@ -25,11 +25,13 @@ public class AttackHandler : MonoBehaviour
     const float speedConstant = 0.15f;
     float speed;
 
-    public float coolDownTime = 5;
-    public float countdown;
-    public float barCountdown;
+    public float coolDownTime;
+    private float countdown;
+    private float barCountdown;
     public TrailRenderer tr;
     public ParticleSystem p;
+    public barSlideHandler b;
+    public ParticleSystem UI;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,8 @@ public class AttackHandler : MonoBehaviour
         a = GetComponent<Animator>();
 
         DashBody.SetActive(false);
+
+        b.SetMaxCD(coolDownTime);
     }
 
     // Update is called once per frame
@@ -58,12 +62,16 @@ public class AttackHandler : MonoBehaviour
                 tr.startColor = new Color(0.75f, 0f, 0.28f);
                 var main = p.main;
                 main.startColor = new Color(0.75f, 0f, 0.28f);
+                var mainUI = UI.main;
+                mainUI.startColor = new Color(0.75f, 0f, 0.28f);
             }
             else
             {
                 tr.startColor = new Color(0f, 0f, 0f);
                 var main = p.main;
                 main.startColor = new Color(0f, 0f, 0f);
+                var mainUI = UI.main;
+                mainUI.startColor = new Color(0f, 0f, 0f);
             }
             if (Input.GetMouseButtonDown(1) && countdown == 0)
             {
@@ -83,6 +91,7 @@ public class AttackHandler : MonoBehaviour
                 barCountdown = 0;
             }
         }
+        b.SetCD(barCountdown);
     }
 
     IEnumerator DashClick(RaycastHit hit)
