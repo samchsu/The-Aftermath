@@ -8,7 +8,7 @@ public class playLightAttackPS : MonoBehaviour
     private Animator a;
     private GameObject frontAttackPS;
     private GameObject frontAttackPS2;
-    public float y;
+    public GameObject HitBox;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,18 +21,21 @@ public class playLightAttackPS : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        y = transform.rotation.y;
+        if (Input.GetMouseButtonDown(0))
+        {
+            a.SetTrigger("frontAttack");
+        }
     }
 
 
     IEnumerator playFrontAttackPS1()
     {
 
-        if (a.GetCurrentAnimatorStateInfo(1).IsName("Stable Sword Outward Slash") || a.GetCurrentAnimatorStateInfo(1).IsName("Stable Sword Inward Slash (1) 1"))
+        if (a.GetCurrentAnimatorStateInfo(1).IsName("Stable Sword Outward Slash"))
         {
-            Debug.Log("Jumping");
             var clone = Instantiate(frontAttackPS, transform.position, transform.rotation);
             clone.transform.parent = P.transform;
+            a.SetInteger("frontAttack2", 1);
             yield return new WaitForSeconds(1f);
             Destroy(clone);
         }
@@ -41,13 +44,35 @@ public class playLightAttackPS : MonoBehaviour
     IEnumerator playFrontAttackPS2()
     {
 
-        if (a.GetCurrentAnimatorStateInfo(1).IsName("Stable Sword Outward Slash 0") || a.GetCurrentAnimatorStateInfo(1).IsName("Stable Sword Inward Slash (1) 1"))
+        if (a.GetCurrentAnimatorStateInfo(1).IsName("Stable Sword Outward Slash 0"))
         {
-            Debug.Log("NOT Jumping");
             var clone = Instantiate(frontAttackPS2, transform.position, transform.rotation);
             clone.transform.parent = P.transform;
+            a.SetInteger("frontAttack2", 0);
             yield return new WaitForSeconds(1f);
             Destroy(clone);
         }
+    }
+
+    IEnumerator playDashAttackPS()
+    {
+
+        if (a.GetCurrentAnimatorStateInfo(1).IsName("Stable Sword Inward Slash (1) 1"))
+        {
+            var clone1 = Instantiate(frontAttackPS, transform.position, transform.rotation);
+            var clone2 = Instantiate(frontAttackPS2, transform.position, transform.rotation);
+            clone1.transform.parent = P.transform;
+            clone2.transform.parent = P.transform;
+            yield return new WaitForSeconds(1f);
+            Destroy(clone1);
+            Destroy(clone2);
+        }
+    }
+
+    IEnumerator hitBoxOn()
+    {
+        HitBox.SetActive(true);
+        yield return new WaitForSeconds(0.4f);
+        HitBox.SetActive(false);
     }
 }

@@ -25,14 +25,18 @@ public class AttackHandler : MonoBehaviour
     const float speedConstant = 0.15f;
     float speed;
 
-    public GameObject frontAttackPS;
+    public float coolDownTime = 5;
+    public float countdown;
+    public float barCountdown;
+    public TrailRenderer tr;
+    public ParticleSystem p;
     // Start is called before the first frame update
     void Start()
     {
+        barCountdown = coolDownTime;
         a = GetComponent<Animator>();
 
         DashBody.SetActive(false);
-
     }
 
     // Update is called once per frame
@@ -40,7 +44,28 @@ public class AttackHandler : MonoBehaviour
     {
         if (canDash)
         {
-            if (Input.GetMouseButtonDown(1))
+            if (countdown > 0)
+            {
+                countdown -= Time.deltaTime;
+                barCountdown += Time.deltaTime;
+            }
+            if(countdown < 0)
+            {
+                countdown = 0;
+            }
+            if(countdown == 0)
+            {
+                tr.startColor = new Color(0.75f, 0f, 0.28f);
+                var main = p.main;
+                main.startColor = new Color(0.75f, 0f, 0.28f);
+            }
+            else
+            {
+                tr.startColor = new Color(0f, 0f, 0f);
+                var main = p.main;
+                main.startColor = new Color(0f, 0f, 0f);
+            }
+            if (Input.GetMouseButtonDown(1) && countdown == 0)
             {
                 canDash = false;
                 RaycastHit hit;
@@ -54,11 +79,9 @@ public class AttackHandler : MonoBehaviour
                     StartCoroutine(DashClick(hit));
 
                 }
+                countdown = coolDownTime;
+                barCountdown = 0;
             }
-        }
-        if (Input.GetMouseButtonDown(0))
-        {
-            a.SetTrigger("frontAttack");
         }
     }
 
