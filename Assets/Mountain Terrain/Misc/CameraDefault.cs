@@ -24,10 +24,17 @@ public class CameraDefault : MonoBehaviour {
 	private float velX = 0.0f;
 	private float velY = 0.0f;
 	private float velZ = 0.0f;
+<<<<<<< HEAD
 	private Vector3 position = Vector3.zero;
 
 
 
+=======
+	private Vector3 position = Vector3.zero;
+
+
+
+>>>>>>> level
     void Start() 
 	{
 		 Distance = Mathf.Clamp(Distance, DistanceMin, DistanceMax);
@@ -37,6 +44,7 @@ public class CameraDefault : MonoBehaviour {
 
 	void LateUpdate()
 	{
+<<<<<<< HEAD
 
             if (TargetLookAt == null)
                 return;
@@ -47,6 +55,18 @@ public class CameraDefault : MonoBehaviour {
 
             UpdatePosition();
 
+=======
+
+            if (TargetLookAt == null)
+                return;
+
+            HandlePlayerInput();
+
+            CalculateDesiredPosition();
+
+            UpdatePosition();
+
+>>>>>>> level
     }
 
 	public void HandlePlayerInput()
