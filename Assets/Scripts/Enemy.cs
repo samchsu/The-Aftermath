@@ -6,15 +6,14 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     public Animator anim;
-    private Rigidbody myRB;
-    public float moveSpeed;
     public NavMeshAgent enemy;
     public Player player;
+
+    private bool isDead;
 
     // Start is called before the first frame update
     void Start()
     {
-        myRB = GetComponent<Rigidbody>();
         player = FindObjectOfType<Player>();
         enemy = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
@@ -23,24 +22,28 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enemy.stoppingDistance < 5f)
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+
+        transform.LookAt(player.transform.position);
+
+        if (distance > 1.6 && !isDead)
         {
-            anim.SetTrigger("Attack");
-        }
-        if (enemy.destination == player.transform.position)
-        {
-            anim.SetBool("isWalking", false);
+            enemy.updatePosition = true;
+            enemy.SetDestination(player.transform.position);
+            anim.SetBool("isWalking", true);
+            anim.SetBool("isAttacking", false);
         }
         else
         {
-            anim.SetBool("isWalking", true);
-            transform.LookAt(player.transform.position);
-            //enemy.destination = player.transform.position;
+            enemy.updatePosition = false;
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isAttacking", true);
         }
     }
 
-    void FixedUpdate()
+    public void EnemyDeath()
     {
-        myRB.velocity = (transform.forward * moveSpeed);
+        isDead = true;
+        anim.SetTrigger("isDead");
     }
 }

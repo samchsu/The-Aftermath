@@ -106,18 +106,18 @@ ModelImporter:
     serializedVersion: 3
     human: []
     skeleton:
-    - name: Ch30_nonPBR(Clone)
+    - name: Slave(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Ch30
-      parentName: Ch30_nonPBR(Clone)
+      parentName: Slave(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mixamorig:Hips
-      parentName: Ch30_nonPBR(Clone)
+      parentName: Slave(Clone)
       position: {x: 0.0000042659817, y: 0.99405295, z: 0.010124164}
       rotation: {x: 0.00000051044685, y: 0.0000011926338, z: -0.00003935688, w: 1}
       scale: {x: 1, y: 1, z: 1}
