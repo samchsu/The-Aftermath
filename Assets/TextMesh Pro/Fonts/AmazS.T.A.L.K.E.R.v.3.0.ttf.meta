@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 035af074be3cd19448da57210c5de694
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: AmazS.T.A.L.K.E.R.v.3.0
+  fontNames:
+  - AmazS.T.A.L.K.E.R.v.3.0
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
