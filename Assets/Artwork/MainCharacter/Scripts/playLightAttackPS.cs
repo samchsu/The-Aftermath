@@ -72,7 +72,7 @@ public class playLightAttackPS : MonoBehaviour
     IEnumerator hitBoxOn()
     {
         HitBox.SetActive(true);
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.1f);
         HitBox.SetActive(false);
     }
 }
