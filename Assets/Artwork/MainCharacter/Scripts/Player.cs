@@ -1,55 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
-    public GameObject cam;
+    public float playerHealth;
+    public barSlideHandler b;
 
-    private InputHandler _input;
+    public int playerKills;
+    public TMP_Text killText;
 
-    [SerializeField]
-    private float moveSpeed;
-
-    [SerializeField]
-    private float rotateSpeed;
-
-    private void Awake()
-    {
-        _input = GetComponent<InputHandler>();
-    }
     // Start is called before the first frame update
     void Start()
     {
-        
+        b.SetMaxCD(playerHealth);
+
+        playerKills = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Plane playerPlane = new Plane(Vector3.up, transform.position);
-        Ray r = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
-        float hitDist = 0.0f;
+        b.SetCD(playerHealth);
 
-        if(playerPlane.Raycast(r, out hitDist))
-        {
-            Vector3 targetPoint = r.GetPoint(hitDist);
-            Quaternion targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
-            targetRotation.x = 0;
-            targetRotation.z = 0;
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 7f * Time.deltaTime);
-        }
-
-        var targetVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y);
-
-        //move
-        MoveTowardTarget(targetVector);
+        killText.text = playerKills.ToString();
     }
 
-    private void MoveTowardTarget(Vector3 targetVector)
+    public void addKill()
     {
-        var speed = moveSpeed * Time.deltaTime;
-        transform.Translate(targetVector * speed);
-
+        playerKills += 1;
     }
 }
