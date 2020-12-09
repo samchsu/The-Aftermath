@@ -24,12 +24,22 @@ public class CameraDefault : MonoBehaviour {
 	private float velX = 0.0f;
 	private float velY = 0.0f;
 	private float velZ = 0.0f;
+<<<<<<< HEAD
 
 	private Vector3 position = Vector3.zero;
 
 
 
 
+=======
+
+	private Vector3 position = Vector3.zero;
+
+
+
+
+
+>>>>>>> level
     void Start() 
 	{
 		 Distance = Mathf.Clamp(Distance, DistanceMin, DistanceMax);
