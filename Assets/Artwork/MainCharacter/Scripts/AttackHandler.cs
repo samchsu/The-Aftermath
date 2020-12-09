@@ -127,11 +127,11 @@ public class AttackHandler : MonoBehaviour
             StartCoroutine(moveActive());
             Destroy(GameObject.FindWithTag("dashPoint"));
         }
-
-        if(other.tag == "wall")
+        if (other.tag == "wall")
         {
             IH.enabled = false;
             StartCoroutine(moveActive());
+            Destroy(GameObject.FindWithTag("dashPoint"));
         }
     }
 
