@@ -7,25 +7,25 @@ public class EnemyDeath : MonoBehaviour
     public float enemyHealth = 100f;
     public Enemy enemyAI;
 
+    public int i = 1;
     // Start is called before the first frame update
     void Start()
     {
-        enemyAI = FindObjectOfType<Enemy>();    
+        enemyAI = gameObject.GetComponent<Enemy>();
     }
 
-    public void damageHealth(float damage)
+    void Update()
     {
-        enemyHealth -= damage;
-
         if (enemyHealth <= 0)
         {
-            enemyDead();
+            if(i == 1)
+            {
+                enemyAI.EnemyDeath();
+                
+                Destroy(this.gameObject, 5);
+                i = 0;
+            }
         }
     }
 
-    void enemyDead()
-    {
-        enemyAI.EnemyDeath();
-        Destroy(gameObject, 10);
-    }
 }

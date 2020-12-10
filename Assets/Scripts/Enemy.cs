@@ -9,7 +9,8 @@ public class Enemy : MonoBehaviour
     public NavMeshAgent enemy;
     public Player player;
 
-    private bool isDead;
+    public bool isDead;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,10 +25,10 @@ public class Enemy : MonoBehaviour
     {
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
-        transform.LookAt(player.transform.position);
 
         if (distance > 1.6 && !isDead)
         {
+            transform.LookAt(player.transform.position);
             enemy.updatePosition = true;
             enemy.SetDestination(player.transform.position);
             anim.SetBool("isWalking", true);
@@ -35,6 +36,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            transform.LookAt(transform.position);
             enemy.updatePosition = false;
             anim.SetBool("isWalking", false);
             anim.SetBool("isAttacking", true);
@@ -43,6 +45,7 @@ public class Enemy : MonoBehaviour
 
     public void EnemyDeath()
     {
+        transform.LookAt(transform.position);
         isDead = true;
         anim.SetTrigger("isDead");
     }

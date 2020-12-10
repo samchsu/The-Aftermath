@@ -120,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 8a3c086e37ae64f7c9bc784c93ec6ecc, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 3a77f0a07376e4844822d7b8ed15c305, type: 2}
 --- !u!1001 &49698726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -631,9 +631,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f31b3b82b905a45815d9fb7b25b43d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  moveSpeed: 0
-  rotateSpeed: 0
+  playerHealth: 0
+  b: {fileID: 0}
+  playerKills: 0
+  killText: {fileID: 0}
 --- !u!64 &971629901
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -10,14 +10,24 @@ public class SpawnEnemies : MonoBehaviour
     public int numEnemies = 25;
     private float range = 70.0f;
 
+    private int i;
     void Start()
     {
         enemies = new List<Enemy>();
+        i = 0;
+    }
 
-        for (int index = 0; index < numEnemies; index++)
+    void Update()
+    {
+        if (i <= numEnemies)
         {
             Enemy spawned = Instantiate(enemy, randomLocation(range), Quaternion.identity) as Enemy;
             enemies.Add(spawned);
+            i += 1;
+            if (spawned.isDead)
+            {
+                i -= 1;
+            }
         }
     }
 
