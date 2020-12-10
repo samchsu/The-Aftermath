@@ -6,6 +6,10 @@ TagManager:
   tags:
   - dashPoint
   - enemy
+  - PlayButton
+  - QuitButton
+  - AboutButton
+  - BackButton
   layers:
   - Default
   - TransparentFX
