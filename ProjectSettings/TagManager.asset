@@ -7,12 +7,18 @@ TagManager:
   - dashPoint
   - enemy
 <<<<<<< HEAD
+<<<<<<< HEAD
   - wall
 =======
+=======
+>>>>>>> menu
   - PlayButton
   - QuitButton
   - AboutButton
   - BackButton
+<<<<<<< HEAD
+>>>>>>> menu
+=======
 >>>>>>> menu
   layers:
   - Default
