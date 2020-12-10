@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     private AttackHandler AH;
 
     private Animator a;
+    public ParticleSystem HP;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +38,7 @@ public class Player : MonoBehaviour
 
         if (killCombo >= 3)
         {
+            StartCoroutine(playHP());
             if (playerHealth <= 4.9f)
             {
                 playerHealth += .25f;
@@ -52,6 +54,9 @@ public class Player : MonoBehaviour
             gameObject.GetComponent<playLightAttackPS>().enabled = false;
             gameObject.GetComponent<AttackHandler>().enabled = false;
             gameObject.GetComponent<TopDownMovementHandler>().enabled = false;
+            gameObject.GetComponent<Rigidbody>().isKinematic = true;
+
+            //SceneManager.LoadScene("gameover");
         }
     }
 
@@ -65,4 +70,19 @@ public class Player : MonoBehaviour
         killCombo += 1;
     }
 
+    IEnumerator playHP()
+    {
+        var clone = Instantiate(HP, transform.position, transform.rotation);
+        clone.transform.position = new Vector3(transform.position.x, transform.position.y + 7, transform.position.z);
+        while (clone.transform.position != transform.position)
+        {
+            Vector3 newPos = Vector3.MoveTowards(clone.transform.position, transform.position, 18 * Time.deltaTime);
+            clone.transform.position = newPos;
+            if (clone.transform.position == transform.position)
+            {
+                Destroy(clone);
+            }
+            yield return null;
+        }
+    }
 }
