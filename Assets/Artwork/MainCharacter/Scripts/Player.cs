@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -25,6 +26,10 @@ public class Player : MonoBehaviour
         b.SetCD(playerHealth);
 
         killText.text = playerKills.ToString();
+        if(playerHealth <= 0)
+        {
+            SceneManager.LoadScene("gameover");
+        }
     }
 
     public void addKill()
