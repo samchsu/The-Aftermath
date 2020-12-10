@@ -27,11 +27,12 @@ public class AttackHandler : MonoBehaviour
 
     public float coolDownTime;
     private float countdown;
-    private float barCountdown;
+    public float barCountdown;
     public TrailRenderer tr;
     public ParticleSystem p;
     public barSlideHandler b;
     public ParticleSystem UI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +48,7 @@ public class AttackHandler : MonoBehaviour
     void Update()
     {
         if (canDash)
-        {
+        {/*
             if (countdown > 0)
             {
                 countdown -= Time.deltaTime;
@@ -57,7 +58,8 @@ public class AttackHandler : MonoBehaviour
             {
                 countdown = 0;
             }
-            if(countdown == 0)
+            */
+            if(barCountdown >= 10)
             {
                 tr.startColor = new Color(0.75f, 0f, 0.28f);
                 var main = p.main;
@@ -73,7 +75,7 @@ public class AttackHandler : MonoBehaviour
                 var mainUI = UI.main;
                 mainUI.startColor = new Color(0f, 0f, 0f);
             }
-            if (Input.GetMouseButtonDown(1) && countdown == 0)
+            if (Input.GetMouseButtonDown(1) && barCountdown >= 10)
             {
                 canDash = false;
                 RaycastHit hit;
@@ -107,6 +109,7 @@ public class AttackHandler : MonoBehaviour
             Vector3 newPos = Vector3.MoveTowards(transform.position, hit.point, dashSpeed * Time.deltaTime);
             transform.position = newPos;
             transform.LookAt(hit.point);
+            barCountdown = 0;
 
 
             if (IH.enabled == false)

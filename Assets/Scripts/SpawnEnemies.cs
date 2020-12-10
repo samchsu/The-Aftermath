@@ -8,9 +8,10 @@ public class SpawnEnemies : MonoBehaviour
     private List<Enemy> enemies;
 
     public int numEnemies = 25;
-    private float range = 70.0f;
+    private float range = 200.0f;
 
     private int i;
+
     void Start()
     {
         enemies = new List<Enemy>();

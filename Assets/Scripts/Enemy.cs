@@ -11,7 +11,6 @@ public class Enemy : MonoBehaviour
 
     public bool isDead;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +44,7 @@ public class Enemy : MonoBehaviour
 
     public void EnemyDeath()
     {
+        player.addKill();
         transform.LookAt(transform.position);
         isDead = true;
         anim.SetTrigger("isDead");

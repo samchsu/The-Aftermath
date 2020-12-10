@@ -6,6 +6,9 @@ public class playerSoundEffects : MonoBehaviour
 {
     public AudioSource dash;
     public AudioSource frontAttack;
+
+    public AudioSource death;
+
     private Animator a;
     // Start is called before the first frame update
     void Start()
@@ -38,5 +41,10 @@ public class playerSoundEffects : MonoBehaviour
     {
         frontAttack.pitch = 1f;
         frontAttack.Play(0);
+    }
+
+    public void playDeathSound()
+    {
+        death.Play(0);
     }
 }
