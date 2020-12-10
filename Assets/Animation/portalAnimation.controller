@@ -54,7 +54,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: kisspng-portal-sprite-animation-two-dimensional-space-spark-5abd407586f9f2_7347946015223522455529_0
+  m_Name: portalAnimation
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:

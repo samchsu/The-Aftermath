@@ -1634,7 +1634,7 @@ GameObject:
   - component: {fileID: 1628536810}
   - component: {fileID: 1628536809}
   m_Layer: 0
-  m_Name: kisspng-portal-sprite-animation-two-dimensional-space-spark-5abd407586f9f2.7347946015223522455529_0
+  m_Name: Portal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
