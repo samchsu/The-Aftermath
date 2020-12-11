@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
         clone.transform.position = new Vector3(transform.position.x, transform.position.y + 7, transform.position.z);
         while (clone.transform.position != transform.position)
         {
-            Vector3 newPos = Vector3.MoveTowards(clone.transform.position, transform.position, 18 * Time.deltaTime);
+            Vector3 newPos = Vector3.MoveTowards(clone.transform.position, transform.position, 10 * Time.deltaTime);
             clone.transform.position = newPos;
             if (clone.transform.position == transform.position)
             {
