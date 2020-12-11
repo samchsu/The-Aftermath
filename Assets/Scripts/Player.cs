@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -56,7 +57,7 @@ public class Player : MonoBehaviour
             gameObject.GetComponent<TopDownMovementHandler>().enabled = false;
             gameObject.GetComponent<Rigidbody>().isKinematic = true;
 
-            //SceneManager.LoadScene("gameover");
+            StartCoroutine(GameOver());
         }
     }
 
@@ -68,6 +69,11 @@ public class Player : MonoBehaviour
         }
         playerKills += 1;
         killCombo += 1;
+        if (playerKills > PlayerPrefs.GetInt("HighestKills", 0))
+        {
+            PlayerPrefs.SetInt("HighestKills", playerKills);
+
+        }
     }
 
     IEnumerator playHP()
@@ -84,5 +90,11 @@ public class Player : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(4f);
+        SceneManager.LoadScene("gameover");
     }
 }

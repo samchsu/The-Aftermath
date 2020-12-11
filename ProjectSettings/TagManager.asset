@@ -6,20 +6,12 @@ TagManager:
   tags:
   - dashPoint
   - enemy
-<<<<<<< HEAD
-<<<<<<< HEAD
   - wall
-=======
-=======
->>>>>>> menu
   - PlayButton
-  - QuitButton
-  - AboutButton
   - BackButton
-<<<<<<< HEAD
->>>>>>> menu
-=======
->>>>>>> menu
+  - AboutButton
+  - QuitButton
+  - PS
   layers:
   - Default
   - TransparentFX
@@ -30,7 +22,7 @@ TagManager:
   - 
   - 
   - Ground
-  - Background
+  - 
   - 
   - 
   - 
@@ -56,10 +48,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 2678073021
-    locked: 0
-  - name: Buttons
-    uniqueID: 3880608661
     locked: 0

@@ -5,30 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-<<<<<<< HEAD
-<<<<<<< HEAD
+  - enabled: 0
     path: Assets/Scenes/Map.unity
     guid: af9f1f50d238b5f4c90ce4e730ac3c86
   - enabled: 1
-    path: Assets/Scenes/gameover.unity
-    guid: a65e508bb62f9214790fad2c7d580c30
-=======
-=======
->>>>>>> menu
-    path: Assets/Scenes/menu.unity
+    path: Assets/Scenes/UI_Manager.unity
     guid: 17839d1f257fb9140b0519d42d79e372
   - enabled: 1
-    path: Assets/Scenes/GameScene.unity
-    guid: cca00ee80b9c2c64fb2b1d959ef6f7cd
+    path: Assets/Scenes/Map2.unity
+    guid: b422977492ed39c4bb6e34d16a42b497
   - enabled: 1
+    path: Assets/Scenes/Scene_About.unity
+    guid: 6b566247b1dbd6243a64d9bd4eec69f9
+  - enabled: 0
     path: Assets/Scenes/AboutScene.unity
     guid: 6c57dc3f9c58bf64c8db3484fd951b9e
   - enabled: 1
-    path: Assets/Scenes/EndScreen.unity
-    guid: 73d73a34f8339ad41a3d45647a950667
-<<<<<<< HEAD
->>>>>>> menu
-=======
->>>>>>> menu
+    path: Assets/Scenes/gameover.unity
+    guid: a65e508bb62f9214790fad2c7d580c30
   m_configObjects: {}
